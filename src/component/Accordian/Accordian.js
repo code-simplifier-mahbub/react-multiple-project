@@ -1,42 +1,76 @@
 import React, { useState } from "react";
-import data from "./data";
+import data from "../Data/data";
 
 const Accordion = () => {
-  const [selected, setSelected] = useState("");
-  const [toggleButton, setToggleButton] = useState("+");
+  const [selected, setSelected] = useState(null);
+  const [enableMultiSelection, setEnableMultiSelection] = useState(false);
+  const [multiple, setMultiple] = useState([]);
 
-  const handleAccordian = (currentId) => {
-    const toggleValue = currentId !== selected ? "-" : "+";
-    setToggleButton(toggleValue);
-    setSelected(currentId === selected ? null : currentId);
+  const handleSingleSelection = (getSelectedId) => {
+    setSelected(getSelectedId === selected ? null : getSelectedId);
+  };
+  const handleMultiSelection = (getCurrentId) => {
+    let copyMultiple = [...multiple];
+    const findIndexOfCurrentId = copyMultiple.indexOf(getCurrentId);
+    console.log(findIndexOfCurrentId);
+    if (findIndexOfCurrentId === -1) {
+      copyMultiple.push(getCurrentId);
+    } else {
+      copyMultiple.splice(findIndexOfCurrentId, 1);
+    }
+    setMultiple(copyMultiple);
   };
 
+  console.log(selected, enableMultiSelection, multiple);
+
   return (
-    <div className="h-screen flex justify-center items-center flex-col">
-      {data && data.length > 0 ? (
-        data.map((dataItem) => (
-          <div key={dataItem.id}>
-            <div
-              onClick={() => handleAccordian(dataItem.id)}
-              className="bg-gray-200 mt-5 w-[600px] p-4 text-md font-bold text-gray-400 rounded-md"
-            >
-              <h3>{dataItem.question}</h3>
-              <span className="font-bold text-4xl">{toggleButton}</span>
-            </div>
-            {/*handler add for show hide accordian data*/}
-            {selected !== dataItem.id ? null : (
-              <div className="bg-gray-200 mt-2 p-4 text-gray-600 font-bold">
-                {dataItem.answer}
-              </div>
-            )}
-          </div>
-        ))
-      ) : (
-        <div>
-          <h5>data not found</h5>
+    <>
+      <div className="h-screen flex justify-center items-center flex-col">
+        <div className="mb-5">
+          <button
+            onClick={() => setEnableMultiSelection(!enableMultiSelection)}
+            className="px-5 py-3 bg-gray-600 text-white font-semibold rounded-md shadow-lg"
+          >
+            Enable enableMultiSelection
+          </button>
         </div>
-      )}
-    </div>
+        {data && data.length > 0 ? (
+          data.map((item) => (
+            <div key={item.id}>
+              <div
+                onClick={
+                  enableMultiSelection
+                    ? () => handleMultiSelection(item.id)
+                    : () => handleSingleSelection(item.id)
+                }
+                className="bg-gray-600 mt-5 w-[600px] p-4 text-md font-bold text-white rounded-md"
+              >
+                <h3>{item.question}</h3>
+                <span>+</span>
+              </div>
+              {enableMultiSelection
+                ? multiple.indexOf(item.id) !== -1 && (
+                    <div className="bg-gray-300 mt-2 p-4 text-gray-700 font-bold">
+                      {item.answer}
+                    </div>
+                  )
+                : selected === item.id && (
+                    <div className="bg-gray-300 mt-2 p-4 text-gray-700 font-bold">
+                      {item.answer}
+                    </div>
+                  )}
+              {/* {selected === item.id || multiple.indexOf(item.id) !== -1 ? (
+                <div className="bg-gray-300 mt-2 p-4 text-gray-700 font-bold">
+                  {item.answer}
+                </div>
+              ) : null} */}
+            </div>
+          ))
+        ) : (
+          <div></div>
+        )}
+      </div>
+    </>
   );
 };
 
