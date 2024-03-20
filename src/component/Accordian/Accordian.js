@@ -21,7 +21,7 @@ const Accordion = () => {
     setMultiple(copyMultiple);
   };
 
-  console.log(selected, enableMultiSelection, multiple);
+  // console.log(selected, enableMultiSelection, multiple);
 
   return (
     <>
