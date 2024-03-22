@@ -45,7 +45,7 @@ const Accordion = () => {
                     ? () => handleMultiSelection(item.id)
                     : () => handleSingleSelection(item.id)
                 }
-                className="bg-gray-600 mt-5 w-[600px] p-4 text-md font-bold text-white rounded-md"
+                className="bg-gray-600 mt-5 w-[600px] p-4 text-md font-bold text-white rounded-md flex justify-between"
               >
                 <h3>{item.question}</h3>
                 <span>+</span>
