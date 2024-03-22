@@ -1,30 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Navbar from "../Navbar/Navbar";
 
 const Home = () => {
   return (
-    <div className="flex justify-center items-center w-[100vw] h-[100vh] bg-gray-500">
-      <div className="flex justify-center items-center gap-7">
-        <Link
-          className="shadow-md text-white border border-solid border-[#fff]/10 rounded-md px-5 py-3 bg-[#fff]/10"
-          to="/"
-        >
-          Home
-        </Link>
-        <Link
-          className="shadow-md text-white border border-solid border-[#fff]/10 rounded-md px-5 py-3 bg-[#fff]/10"
-          to="/accordian"
-        >
-          Accordian
-        </Link>
-        <Link
-          className="shadow-md text-white border border-solid border-[#fff]/10 rounded-md px-5 py-3 bg-[#fff]/10"
-          to="/random-color"
-        >
-          Random Color
-        </Link>
+    <>
+      <Navbar></Navbar>
+      <div className="flex justify-center items-center w-[100vw] h-[100vh]">
+        <div className="flex justify-center items-center gap-7">
+          <h3 className="text-[100px] text-slate-700 shadow-md px-20 py-5 rounded-md">
+            React 25 Project
+          </h3>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

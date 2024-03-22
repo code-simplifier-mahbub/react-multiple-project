@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import data from "../Data/data";
+import Navbar from "../Navbar/Navbar";
 
 const Accordion = () => {
   const [selected, setSelected] = useState(null);
@@ -25,7 +26,8 @@ const Accordion = () => {
 
   return (
     <>
-      <div className="h-screen flex justify-center items-center flex-col">
+      <Navbar></Navbar>
+      <div className="h-screen flex justify-start mt-5 items-center flex-col">
         <div className="mb-5">
           <button
             onClick={() => setEnableMultiSelection(!enableMultiSelection)}
