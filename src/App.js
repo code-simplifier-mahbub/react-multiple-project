@@ -4,6 +4,7 @@ import Accordion from "./component/Accordian/Accordian";
 import RandomColor from "./component/RandomColor/RandomColor";
 import Home from "./component/Home/Home";
 import Navbar from "./component/Navbar/Navbar";
+import RatingStar from "./component/RatingStar/RatingStar";
 
 function App() {
   const router = createBrowserRouter([
@@ -24,6 +25,10 @@ function App() {
     {
       path: "/random-color",
       element: <RandomColor></RandomColor>,
+    },
+    {
+      path: "/rating-star",
+      element: <RatingStar></RatingStar>,
     },
   ]);
   return <RouterProvider router={router}></RouterProvider>;

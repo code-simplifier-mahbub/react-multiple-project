@@ -60,8 +60,15 @@ const RandomColor = () => {
             Create Random Color
           </button>
         </div>
-        <div className="flex justify-center items-center mt-24 text-[100px] text-white">
-          {color}
+        <div className="flex justify-center flex-col items-center mt-24 text-[100px] text-white">
+          <div>
+            {typeOfColor === "hex" ? (
+              <h3>{typeOfColor} color</h3>
+            ) : (
+              <h3>{typeOfColor} color</h3>
+            )}
+          </div>
+          <div className="mt-5">{color}</div>
         </div>
       </div>
     </>

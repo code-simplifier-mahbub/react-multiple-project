@@ -32,6 +32,14 @@ const Navbar = () => {
             Random Color
           </Link>
         </li>
+        <li className="">
+          <Link
+            className="text-blue-700 font-semibold hover:bg-blue-600 hover:text-slate-200 transition-all duration-300 py-3 px-4"
+            to="/rating-star"
+          >
+            Rating Star
+          </Link>
+        </li>
       </ul>
     </div>
   );
