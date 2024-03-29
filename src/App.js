@@ -5,6 +5,7 @@ import RandomColor from "./component/RandomColor/RandomColor";
 import Home from "./component/Home/Home";
 import Navbar from "./component/Navbar/Navbar";
 import RatingStar from "./component/RatingStar/RatingStar";
+import SlideImages from "./component/SlideImages/SlideImages";
 
 function App() {
   const router = createBrowserRouter([
@@ -29,6 +30,16 @@ function App() {
     {
       path: "/rating-star",
       element: <RatingStar></RatingStar>,
+    },
+    {
+      path: "/image-slider",
+      element: (
+        <SlideImages
+          url={"https://picsum.photos/v2/list"}
+          pages={"1"}
+          limit={"5"}
+        />
+      ),
     },
   ]);
   return <RouterProvider router={router}></RouterProvider>;

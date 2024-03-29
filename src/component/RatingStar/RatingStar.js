@@ -31,7 +31,7 @@ const RatingStar = () => {
               onMouseLeave={() => handlMouseLeave()}
               className={
                 index <= (hover || rating)
-                  ? "text-yellow-500"
+                  ? "text-yellow-300"
                   : "text-slate-600"
               }
               size={40}

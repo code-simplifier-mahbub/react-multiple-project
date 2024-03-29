@@ -40,6 +40,14 @@ const Navbar = () => {
             Rating Star
           </Link>
         </li>
+        <li className="">
+          <Link
+            className="text-blue-700 font-semibold hover:bg-blue-600 hover:text-slate-200 transition-all duration-300 py-3 px-4"
+            to="/image-slider"
+          >
+            Image Slider
+          </Link>
+        </li>
       </ul>
     </div>
   );
